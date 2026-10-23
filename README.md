@@ -48,6 +48,19 @@ docker compose down -v && docker compose up -d
 
 To back up or restore your progress, use `scripts/backup_volume.sh`.
 
+## Rank and experience
+
+**This is set to full:** every encyclopedia item is marked as visited, so you start as **Captain** with **120% experience** and nothing is locked.
+
+The program shows the percentage as 120%, not 100%. That's how the original program counts it, so it isn't a fault.
+
+To change it:
+- **Before the first start:** set `UNLOCK_ALL: "0"` in `compose.yaml` to start as an Ensign at 0% and unlock items by exploring, as the original intended. This setting is only read during first-run setup. If you've already started the container, run `docker compose down -v && docker compose up -d` to start again. **That deletes any progress.**
+- **Later, by hand:** your progress is kept in `C:\Program Files\DS9\Userdat.ini` inside the container. Under `[CurrentUser]`, the lines `disk1=[...]` to `disk7=[...]` list the visited item IDs for each season. Remove IDs to lower that season's percentage, or empty a list to reset that season.
+  - Edit the file only while the program is closed, because it rewrites the file when it quits.
+  - To edit it: run `docker exec -it ds9-vss bash`, then `pkill -f virtual_space_station`, then edit `"/root/.wine/drive_c/Program Files/DS9/Userdat.ini"`, then `docker restart ds9-vss`.
+- `docker/mkuserdat.py` is the script that writes the full list from your disc's encyclopedia database.
+
 ## What's on each disc
 
 Each 2003 DS9 season box set (UK, Region 2) came with one CD-ROM. Each disc carries the program plus the encyclopedia up to that season, so later discs contain everything on the earlier ones.
