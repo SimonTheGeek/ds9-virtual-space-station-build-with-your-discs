@@ -58,7 +58,20 @@ To change it:
 - **Before the first start:** set `UNLOCK_ALL: "0"` in `compose.yaml` to start at 0% experience and unlock items by exploring, as the original intended. Your rank stays Captain: rank appears to follow the number of seasons installed (all 7 here), not experience. This setting is only read during first-run setup. If you've already started the container, run `docker compose down -v && docker compose up -d` to start again. **That deletes any progress.**
 - **Later, by hand:** your progress is kept in `C:\Program Files\DS9\Userdat.ini` inside the container. Under `[CurrentUser]`, the lines `disk1=[...]` to `disk7=[...]` list the visited item IDs for each season. Remove IDs to lower that season's percentage, or empty a list to reset that season.
   - Edit the file only while the program is closed, because it rewrites the file when it quits.
-  - To edit it: run `docker exec -it ds9-vss bash`, then `pkill -f virtual_space_station`, then edit `"/root/.wine/drive_c/Program Files/DS9/Userdat.ini"`, then `docker restart ds9-vss`.
+  - To edit it:
+    ```bash
+    docker exec ds9-vss supervisorctl stop ds9
+    ```
+    ```bash
+    docker cp "ds9-vss:/root/.wine/drive_c/Program Files/DS9/Userdat.ini" .
+    ```
+    Edit `Userdat.ini` in any text editor, then copy it back:
+    ```bash
+    docker cp Userdat.ini "ds9-vss:/root/.wine/drive_c/Program Files/DS9/Userdat.ini"
+    ```
+    ```bash
+    docker exec ds9-vss supervisorctl start ds9
+    ```
 - `docker/mkuserdat.py` is the script that writes the full list from your disc's encyclopedia database.
 
 ## What's on each disc
