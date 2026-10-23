@@ -5,7 +5,7 @@ All of these were worked out on 2026-10-23. The Lingo was decompiled with [Proje
 | # | Symptom | Cause | Fix (where) |
 |---|---|---|---|
 | 1 | "The application is not properly installed" | The program expects to have been installed by its Wise installer | Copy `disc7/application` to `C:\Program Files\DS9` and write the `HKCR\DS9appInstall` keys the installer would have set (`start-ds9.sh`, `reg/ds9app.reg`) |
-| 2 | Hangs at first launch: online registration | It calls `http://www.ds9-virtualspacestation.com/connect_test.txt`, `/php/register.php` and `/php/update.php`, and `www.thomasevensen.org/ds9/regcode.php`. Those sites are long gone | `compose.yaml` points those names at 127.0.0.1, where a Python web server serves `fakesite/`. `connect_test.txt` returns `1` |
+| 2 | Hangs at first launch: online registration | With no registration code, it tries `http://www.ds9-virtualspacestation.com/connect_test.txt`, then `/php/register.php` (and `www.thomasevensen.org/ds9/regcode.php` for the questionnaire). Those sites are long gone | Not needed once fix #3 is in place: with a valid code, startup goes straight to the main screen with no network calls. `compose.yaml` still points those domains (and `riordanfaz.com`, where the main program fetches a news message, and falls back to the copy on the disc) at the container itself, so any stray call fails instantly and can't reach whoever owns those domains today |
 | 3 | Asks for a registration code | `checkValidReg()` accepts **any** code except `0` or `00000000`. The code is stored in `HKCR\DS9appInstall\regcode` | `regcode=19920103` in `reg/ds9app.reg` |
 | 4 | "Please insert disc DS9_7" | It checks drive D:'s volume label | Unpack the ISOs to folders under the Wine prefix. Give each a `.windows-label` file (`DS9_7`, `DS9`) and register the drives as plain disks, **not** CD-ROMs: Wine only reads `.windows-label` for non-CD drive types (`start-ds9.sh`) |
 | 5 | Wine crashes (page fault) when the 3D view opens | `shockwave 3d asset.x32` uses DirectX 7. Wine's ddraw crashes in `d3d_device7_SetRenderTarget` → `validate_surface_palette` | Turn off ddraw for this exe only: `HKCU\Software\Wine\AppDefaults\virtual_space_station.exe\DllOverrides ddraw=""`. Shockwave 3D then falls back to OpenGL (Mesa) (`reg/appdefaults.reg`, renderer settings in `reg/macromedia.reg`) |
@@ -19,7 +19,6 @@ All of these were worked out on 2026-10-23. The Lingo was decompiled with [Proje
   - `fluxbox`
   - `x11vnc` (localhost only)
   - `novnc` (websockify on :6080)
-  - `fakesite` (`python3 -m http.server 80`)
   - `ds9` (`start-ds9.sh`)
 - **Wine prefix** (`/root/.wine`, volume `ds9-wine`):
   - `cds/disc7` → D:

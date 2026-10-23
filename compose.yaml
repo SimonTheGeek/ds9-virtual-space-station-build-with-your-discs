@@ -13,9 +13,11 @@ services:
     volumes:
       - ./discs:/discs:ro            # your own DS9_disc1.iso and DS9_disc7.iso (others optional)
       - ds9-wine:/root/.wine         # Wine prefix: install, registry, progress
-    extra_hosts:                     # the dead registration/update sites -> the local stand-in
+    extra_hosts:                     # the program's long-dead websites -> nowhere, so any call fails at once
       - "www.ds9-virtualspacestation.com:127.0.0.1"
       - "ds9-virtualspacestation.com:127.0.0.1"
       - "www.thomasevensen.org:127.0.0.1"
+      - "www.riordanfaz.com:127.0.0.1"
+      - "riordanfaz.com:127.0.0.1"
 volumes:
   ds9-wine:

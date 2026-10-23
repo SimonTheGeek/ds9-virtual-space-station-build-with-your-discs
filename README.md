@@ -10,6 +10,14 @@ The container uses Wine, a virtual display and noVNC to run the original program
 
 > **You need your own discs.** This repo contains no Paramount content: no disc images, program files or encyclopedia data. You supply the ISO images (see [discs/README.md](discs/README.md)). This is an unofficial fan project, not affiliated with or endorsed by Paramount, CBS or the original developers. Star Trek and related marks are trademarks of their owners.
 
+## Screenshots
+
+| 3D station view | Episode menu | Options menu |
+|---|---|---|
+| ![The DS9 station in the 3D viewer, with its encyclopedia entry](docs/screenshots/3d-station-view.png) | ![The Ship Log season and episode selector, showing the episode "Progress"](docs/screenshots/episode-menu.png) | ![The options wheel open on the Races list](docs/screenshots/options-menu.png) |
+
+*Screenshots of the original 2003 program running in this container. Star Trek content © Paramount; shown for illustration only.*
+
 ## Quick start
 
 1. Install [Docker](https://docs.docker.com/get-docker/), including Docker Compose.
@@ -100,7 +108,6 @@ Each 2003 DS9 season box set (UK, Region 2) came with one CD-ROM. Each disc carr
 | `docker/start-ds9.sh` | First-run setup, then launches the program |
 | `docker/reg/` | Registry settings: install keys, all seasons, Shockwave 3D renderer, Wine `ddraw` override |
 | `docker/mkuserdat.py` | Writes the "everything visited" progress file from *your* disc's encyclopedia database |
-| `docker/fakesite/` | Local stand-in for the long-dead `ds9-virtualspacestation.com` registration site |
 | `scripts/` | `image_disc.sh` (Linux disc imaging), `backup_volume.sh` (back up or restore progress) |
 | `docs/` | [Disc details](docs/DISCS.md) and [every problem and fix](docs/HOW-IT-WORKS.md) |
 
