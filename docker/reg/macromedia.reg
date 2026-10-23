@@ -1,0 +1,17 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Macromedia]
+
+[HKEY_CURRENT_USER\Software\Macromedia\Shockwave 8]
+
+[HKEY_CURRENT_USER\Software\Macromedia\Shockwave 8\renderer3dsetting]
+@="0"
+
+[HKEY_CURRENT_USER\Software\Macromedia\Shockwave 8\uicontrol]
+
+[HKEY_CURRENT_USER\Software\Macromedia\Shockwave 8\uicontrol\sw3dbaddriverlist1]
+@="*2k*savage/ix!^5.12.01.7012$79x=stbnvidiatnt16mb!=4.10.01.9131$o2k=diamondstealthiiis530!=5.12.01.8007-8.30.24$72k=m!=5.00.2180.3711$***=atigraphicsproturbopci(atim64-gx)!^9999.0.0.0$ont=nvidiageforce256!=4.00.1381.0327$****virge!^9999.0.0.0$*9x=ibmthinkpad(cyber9397dvd)!=4.10.01.2173$79x=mach64:ragepro!=4.11.2560$*2k=m!^5.12.01.1200$o9x=intel(r)82810graphicscontroller!=4.12.01.2656$o**=m!^5.12.01.1509$o2k=3dfxvoodooseries!=5.00.2195.0197$ont=3dfxvoodooseries!=4.00.1381.0229$o2k=diamondstealthiiis540!=5.12.01.8007-8.30.24$*9x*permedia2!^4.10.01.2359$****mystique!^9999.0.0.0$*9x*g400!^4.12.1.1710$***=2164w!^9999.0.0.0$*9x=mach64:ragepro!^4.10.1720$ont*3dblasterriva!^4.03.00.2100$ont*nvidia!^4.00.1381.0508$79x*nvidia!^4.12.01.0513$o9x*diamondviperv770!^4.11.01.0402$****g100!^9999.0.0.0$59x*nvidiariva128!=4.10.1713$ont*radeon!^4.3.3109$o2k*voodoobanshee!=5.00.2195.2b$o***permedia3!^4.12.01.2107$o***ragefury!^4.3.139$o***rage128glagp!=4.00$ont*voodoo4!=4.00.1381.0229$o2k*s3inc.savage/mx!^5.12.1.7026$ont*3dfxvoodoo3!^4.00.1381.0391$ont=voodoo55500pci!^4.00.1381.0229$*9x=mach64:ragepro!^4.11.2611$*9x=2064w!^4.10.1682$79x=diamondviperv330!=4.10.01.0014$ont*nvidiarivatnt2!^4.00.1381.0631$*9x*g450!^4.12.1.1709$o***g450!^4.12.01.1799$*9x*xpert@play!^4.10.2237$****trio!^9999.0.0.0$79x*voodooo3!^4.11.01.1204$o9x*voodoo3!^4.11.01.7160$*2k*voodooseries!^5.00.2195.0232$79x*voodoo3!^4.12.01.1225$72k*voodoo3!^5.00.2180.58$o2k=elsagloriasynergy!=5.00.2180.1$72k=elsagloriasynergy!=5.00.2180.1$79x=glintdelta+glintmx!^4.10.0106$79x*rageii!=4.10.2165$59x*rageii!=4.10.2165$*9x=3dlabsoxygengvx1!^4.12.01.2107-0828$59x*cyber9397dvd!^4.11.01.2177$79x=mach64lt!^4.11.2022$79x=mach64gt!^4.11.2474$o9x*atirage128glsdagp!^4.12.6269$o9x*nvidia!=4.12.01.0618$ont*nvidia!=4.00.1381.0618$o2k*nvidia!=5.12.01.0618$***=unknown!=unknown$o9x*nvidia!=4.12.01.0650$59x=mach64gt!^4.03.00.2030$59x=mach64gt!^4.03.00.2030$59x*810chipset!^4.11.01.2506$"
+
+[HKEY_CURRENT_USER\Software\Macromedia\Shockwave 8\uicontrol\sw3dbaddriverlist2]
+@="*9x*g200!^4.11.01.2519$o9x*g200!=4.12.01.2730$o9x=glintr3.!^4.12.01.2107-0829R$omc=.display_rage128!1.0.1f14/opengl1.1.2$59x=magnum/xpert128/x99/xpert2000(english)!=4.12.6292$59x=magnum/xpert128/x99/xpert2000!=4.13.7078$52k=atiragemobility-pagp(english)!=5.00.2195.4045$52k*ragexl!=5.00.2180.1$52k=neomagicmagicmedia256xl+!^5.38.00$o9x*g400!^4.12.01.1799$ont*g400!^9999.0.0.0$o2k*g400!^9999.0.0.0$ont*nvidia!=4.00.1381.0650$ont*rage128gl!=4.3.40$*2k=s3inc.savage4!^5.12.01.8011$79x*trio3d/2x!^4.11.01.5001$72k*savage/ixdisplaydriver!=5.12.01.7028-7.31.06$ont*prosavagepm133!^4.1024.1010.0010$o2k*prosavagepm133!^5.12.01.1002$59x*3dimage9!=4.10.01.2161$79x*3dimage9!=4.10.01.2161$72k=diamondmultimediafiregl1000pro!=5.00.2180.1$72k=s3graphicsprosavage+utilities!^5.13.01.1010-11.80.20$"
+

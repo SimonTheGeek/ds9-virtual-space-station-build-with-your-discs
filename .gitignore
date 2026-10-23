@@ -1,0 +1,9 @@
+# Disc images are copyrighted - never commit them
+*.iso
+*.ISO
+*.bin
+*.cue
+*.img
+*.tgz
+*.docker.tar
+.env

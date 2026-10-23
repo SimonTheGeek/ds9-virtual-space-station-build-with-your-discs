@@ -1,0 +1,21 @@
+services:
+  ds9:
+    build: ./docker
+    image: ds9-vss:latest
+    container_name: ds9-vss
+    restart: unless-stopped
+    ports:
+      # noVNC has NO password: by default it's only reachable from this computer.
+      # To use it from other machines on your LAN, change to "6080:6080" (never expose it to the internet).
+      - "127.0.0.1:6080:6080"
+    environment:
+      UNLOCK_ALL: "1"                # 1 = every encyclopedia item visited (120%, Captain); 0 = start fresh
+    volumes:
+      - ./discs:/discs:ro            # your own DS9_disc1.iso and DS9_disc7.iso (others optional)
+      - ds9-wine:/root/.wine         # Wine prefix: install, registry, progress
+    extra_hosts:                     # the dead registration/update sites -> the local stand-in
+      - "www.ds9-virtualspacestation.com:127.0.0.1"
+      - "ds9-virtualspacestation.com:127.0.0.1"
+      - "www.thomasevensen.org:127.0.0.1"
+volumes:
+  ds9-wine:

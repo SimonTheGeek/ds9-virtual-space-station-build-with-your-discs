@@ -1,0 +1,22 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\DS9appInstall]
+"application_folder"="C:\\PROG~FBU\\DS9"
+"application_path"="C:\\PROG~FBU\\DS9\\virtual_space_station.exe"
+"language"="english"
+"pseudo_season1"="1"
+"questionaire_complete"="0"
+"regcode"="19920103"
+"region"="UK"
+"saver_version"="3"
+"season1"="1"
+"season2"="1"
+"season3"="1"
+"season4"="1"
+"season5"="1"
+"season6"="1"
+"season7"="1"
+"season_high"="7"
+"skip_intro"="0"
+"updated"="01/01/2003"
+
