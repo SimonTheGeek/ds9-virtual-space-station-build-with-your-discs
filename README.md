@@ -33,7 +33,7 @@ The container uses Wine, a virtual display and noVNC to run the original program
    ```bash
    docker compose up -d --build
    ```
-5. Open **http://localhost:6080/vnc.html** and click *Connect*.
+5. Open **http://localhost:6080/**. It connects by itself. Click **Sound off** in the bottom-right corner to turn the sound on.
 
 The first start takes a few minutes: it builds the image and installs the program. You can follow the setup with:
 
@@ -46,7 +46,7 @@ docker exec ds9-vss tail -f /root/.wine/ds9-setup.log
 | Setting | Default | Change it to… |
 |---|---|---|
 | `UNLOCK_ALL` | `"1"`: every encyclopedia item marked as visited (120% experience, Captain rank) | `"0"` to start fresh and unlock items by exploring |
-| `ports` | `127.0.0.1:6080:6080`: this computer only | `"6080:6080"` to use it from other devices on your home network. **noVNC has no password, so never expose it to the internet.** |
+| `ports` | `127.0.0.1:6080` (picture) and `:6082` (sound): this computer only | `"6080:6080"` and `"6082:6082"` to use it from other devices on your home network. **noVNC has no password, so never expose it to the internet.** |
 
 To start again from scratch (this deletes your progress):
 
@@ -104,7 +104,7 @@ Each 2003 DS9 season box set (UK, Region 2) came with one CD-ROM. Each disc carr
 
 | Path | Purpose |
 |---|---|
-| `docker/Dockerfile` | Debian bookworm, Wine (32-bit), Mesa, Xvfb, fluxbox, x11vnc, noVNC, supervisord |
+| `docker/Dockerfile` | Debian bookworm, Wine (32-bit), Mesa, Xvfb, fluxbox, x11vnc, noVNC, PulseAudio + ffmpeg (sound), supervisord |
 | `docker/start-ds9.sh` | First-run setup, then launches the program |
 | `docker/reg/` | Registry settings: install keys, all seasons, Shockwave 3D renderer, Wine `ddraw` override |
 | `docker/mkuserdat.py` | Writes the "everything visited" progress file from *your* disc's encyclopedia database |
@@ -112,7 +112,7 @@ Each 2003 DS9 season box set (UK, Region 2) came with one CD-ROM. Each disc carr
 | `docs/` | [Disc details](docs/DISCS.md) and [every problem and fix](docs/HOW-IT-WORKS.md) |
 
 ## Known limitations
-- **No sound.** The container has no audio device. Contributions welcome.
+- **Sound runs about 1–2 seconds behind the picture.** It comes as a separate stream on port 6082, because noVNC only carries the picture.
 - Tested only with the UK (Region 2) box-set discs. Discs from other regions may have different labels or files.
 - The search menu on the top right of the side panels jumps back to *DS9 Summary*. The original program does this too.
 - 3D runs on software OpenGL, so it's slow-ish on old CPUs.

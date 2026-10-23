@@ -20,6 +20,9 @@ All of these were worked out on 2026-10-23. The Lingo was decompiled with [Proje
   - `x11vnc` (localhost only)
   - `novnc` (websockify on :6080)
   - `ds9` (`start-ds9.sh`)
+  - `pulseaudio`: a virtual sound card (`ds9` null sink). Wine's PulseAudio driver plays into it (`PULSE_SERVER=unix:/tmp/pulse.sock`)
+  - `audiostream` (`audiostream.py`): serves MP3 on :6082, starting a fresh ffmpeg capture of the sink's monitor for each listener, so no stale audio builds up
+  - the start page `ds9.html` (served as `/` by noVNC) shows noVNC full-screen, with a Sound button that plays the stream
 - **Wine prefix** (`/root/.wine`, volume `ds9-wine`):
   - `cds/disc7` → D:
   - `cds/disc1` → E:
@@ -31,6 +34,5 @@ All of these were worked out on 2026-10-23. The Lingo was decompiled with [Proje
 This is the publisher's own "patch v1.1", dated 2003-04-07: a small Director projector. It was examined statically and not run. It has no network code. It reads and writes `HKCR\DS9appInstall` (including `regcode`) so the program skips online registration for users behind a firewall. In other words, it is the official version of fix #3, and the container doesn't need it.
 
 ## Ideas not done yet
-- Sound: add PulseAudio and stream it to the browser.
 - A standalone encyclopedia: turn `db1_english.txt` and its images into a static website that works without the 3D program.
 - Pull the screensaver and wallpapers out at full resolution.

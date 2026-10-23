@@ -1,0 +1,3 @@
+load-module module-null-sink sink_name=ds9 sink_properties=device.description=DS9
+load-module module-native-protocol-unix socket=/tmp/pulse.sock auth-anonymous=1
+set-default-sink ds9

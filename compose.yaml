@@ -6,8 +6,9 @@ services:
     restart: unless-stopped
     ports:
       # noVNC has NO password: by default it's only reachable from this computer.
-      # To use it from other machines on your LAN, change to "6080:6080" (never expose it to the internet).
+      # To use it from other machines on your LAN, change to "6080:6080" and "6082:6082" (never expose it to the internet).
       - "127.0.0.1:6080:6080"
+      - "127.0.0.1:6082:6082"        # the sound stream (change both lines together)
     environment:
       UNLOCK_ALL: "1"                # 1 = every encyclopedia item visited (120%, Captain); 0 = start fresh
     volumes:
